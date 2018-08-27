@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhu.dao.UserDao">
+    <resultMap id="user" type="user">
+        <id column="user_id" property="user_id"/>
+        <result column="user_name" property="user_name"/>
+        <result column="createtime" property="createtime"/>
+    </resultMap>
+    <select id="getUserById" resultType="user">
+      SELECT * FROM T_USER WHERE USER_ID = #{user_id}
+    </select>
+    <select id="getUserByLogin" resultType="user">
+      SELECT * FROM T_USER WHERE USER_ID=#{user_id} and USER_NAME=#{user_name}
+    </select>
+    <select id="getUsers" resultType="user">
+        SELECT * FROM T_USER
+    </select>
+</mapper>

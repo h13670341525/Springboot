@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>错误页面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link th:href="@{/css/errorstyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="header">
+    <h1>Smart error page</h1>
+</div>
+<div class="w3-main">
+    <div class="agile-info">
+        <h3>SORRY</h3>
+        <h2>4<img th:src="@{/images/confused.gif}"/>4</h2>
+        <p>An error Occurred in the Application And Your Page could not be Served.</p>
+        <a href="#" onclick="window.history.go(-1)">go back</a>
+    </div>
+</div>
+<div class="footer-w3l">
+    <p>&copy; 2017 Smart Error Page. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+</div>
+
+</body>
+</html>
