@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhu.dao.PersonDao">
+    <resultMap id="person" type="person">
+        <id property="person_id" column="person_id"/>
+        <result property="person_name" column="person_name"/>
+        <result property="address.address_id" column="address_id"/>
+        <result property="address.address_name" column="address_name"/>
+    </resultMap>
+    <insert id="insertPerson" parameterType="person">
+        insert into person_table values(null,#{person_name},#{address.address_id})
+    </insert>
+    <select id="findPersonById" resultMap="person">
+        SELECT person_id,person_name,p.address_id,address_name
+           from person_table p join address_table a on p.address_id=a.address_id
+           where person_id=#{person_id}
+    </select>
+</mapper>

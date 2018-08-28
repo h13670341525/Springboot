@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 public class DataSourceConfig {
 
      @Bean
-     @ConfigurationProperties(prefix = "oracle.datasource")
+     @ConfigurationProperties(prefix = "mysql.datasource")
      public DataSource getDataSource(){
          return  DataSourceBuilder.create().type(com.mchange.v2.c3p0.ComboPooledDataSource.class).build();
      }
