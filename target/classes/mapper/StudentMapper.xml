@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dhu.dao.StudentDao">
+    <resultMap id="student" type="student">
+        <id property="student_id" column="student_id"/>
+        <result property="student_name" column="student_name"/>
+        <collection property="courses" column="student_id" select="com.dhu.dao.CourseDao.findCoursesByStudentId"/>
+    </resultMap>
+    <select id="findStudentById" resultMap="student">
+        SELECT * FROM student_table where student_id=#{student_id}
+    </select>
+    <select id="findStudentsByCourseId" resultMap="student">
+        SELECT s.* from student_table s
+             join sc_table c on s.student_id=c.student_id
+              where c.course_id=#{course_id}
+    </select>
+</mapper>

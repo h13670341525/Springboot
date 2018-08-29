@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dhu.dao.TutorDao">
-    <resultMap id="course" type="course">
-      <id property="course_id" column="course_id"/>
-      <result property="course_name" column="course_name"/>
-    </resultMap>
     <resultMap id="tutor" type="tutor">
         <id property="tutor_id" column="tutor_id"/>
         <result property="tutor_name" column="tutor_name"/>
-        <collection property="courses" resultMap="course"/>
+        <collection property="courses"  column="tutor_id" select="com.dhu.dao.CourseDao.findCoursesByTutorId"/>
     </resultMap>
     <select id="findTutorById" resultMap="tutor">
-        select t.tutor_id,tutor_name,course_id,course_name
-           from tutor_table t join course_table c on t.tutor_id=c.tutor_id
-           where t.tutor_id=#{tutor_id}
+        select * from tutor_table where tutor_id=#{tutor_id}
     </select>
     <select id="findAllTutors" resultMap="tutor">
-        select t.tutor_id,tutor_name,course_id,course_name
-        from tutor_table t join course_table c on t.tutor_id=c.tutor_id
+        select * from tutor_table
     </select>
 </mapper>

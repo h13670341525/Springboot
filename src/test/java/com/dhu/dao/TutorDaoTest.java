@@ -19,6 +19,7 @@ public class TutorDaoTest {
     public void findTutorById(){
         Tutor tutor=tutorDao.findTutorById(1);
         System.out.println(tutor.getTutor_name());
+        System.out.println(tutor.getCourses().size());
         for(Course course:tutor.getCourses()){
             System.out.println(course.getCourse_name());
         }

@@ -26,6 +26,6 @@ public class PersonDaoTest {
     public void findPersonById(){
         Person person=personDao.findPersonById(1);
         System.out.println(person.getPerson_name());
-        System.out.println(person.getAddress().getAddress_name());
+        System.out.println(person.getAddress());
     }
 }

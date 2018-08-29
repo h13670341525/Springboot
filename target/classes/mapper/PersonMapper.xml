@@ -4,15 +4,16 @@
     <resultMap id="person" type="person">
         <id property="person_id" column="person_id"/>
         <result property="person_name" column="person_name"/>
-        <result property="address.address_id" column="address_id"/>
-        <result property="address.address_name" column="address_name"/>
+        <!--<result property="address.address_id" column="address_id"/>-->
+        <!--<result property="address.address_name" column="address_name"/>-->
+        <association property="address" javaType="address" column="address_id" select="com.dhu.dao.AddressDao.findAddressById">
+
+        </association>
     </resultMap>
     <insert id="insertPerson" parameterType="person">
         insert into person_table values(null,#{person_name},#{address.address_id})
     </insert>
-    <select id="findPersonById" resultMap="person">
-        SELECT person_id,person_name,p.address_id,address_name
-           from person_table p join address_table a on p.address_id=a.address_id
-           where person_id=#{person_id}
+    <select id="findPersonById" resultType="person">
+        SELECT * from person_table WHERE person_id=#{person_id}
     </select>
 </mapper>

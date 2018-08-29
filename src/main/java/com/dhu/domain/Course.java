@@ -1,10 +1,12 @@
 package com.dhu.domain;
 
+import java.util.List;
+
 public class Course {
     private int course_id;
     private String course_name;
     private int tutor_id;
-
+    private List<Student> students;
     public int getCourse_id() {
         return course_id;
     }
@@ -27,5 +29,13 @@ public class Course {
 
     public void setTutor_id(int tutor_id) {
         this.tutor_id = tutor_id;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }
