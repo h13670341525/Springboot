@@ -16,8 +16,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
+
     @RequestMapping("/login.do")
     public String login(HttpServletRequest request,String user_count,String user_psw){
         User user=userService.login(user_count,user_psw);
@@ -29,7 +31,10 @@ public class UserController {
             return "success";
         }
     }
-
+    @RequestMapping("/register.do")
+    public String register(String user_count,String user_psw){
+        return userService.register(user_count,user_psw);
+    }
     @AuthValidate(value = 2)
     @RequestMapping("/user.do")
     public String user(HttpServletRequest request){

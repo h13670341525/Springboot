@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface UserDao {
     void insertUser(User user);
-    User getUserById (int user_id);
-    User getUserByLogin(@Param("user_count")String user_count,@Param("user_psw")String user_psw);
+    User findUserById (int user_id);
+    User findUserByLogin(@Param("user_count")String user_count,@Param("user_psw")String user_psw);
+    User findUserByCount(String user_count);
     List<User> getUsers();
 }

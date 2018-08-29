@@ -30,6 +30,6 @@ public class UserDaoTest {
        }
        @Test
        public void FindUserById(){
-              System.out.println(userDao.getUserById(1).getUser_name());
+              System.out.println(userDao.findUserById(1).getUser_name());
        }
 }

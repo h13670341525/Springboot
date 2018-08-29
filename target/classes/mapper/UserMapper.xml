@@ -4,13 +4,16 @@
     <insert id="insertUser" parameterType="user">
         INSERT INTO user_table values(null,#{user_name},#{user_count},#{user_psw})
     </insert>
-    <select id="getUserById" resultType="user">
+    <select id="findUserById" resultType="user">
       SELECT * FROM user_table WHERE user_id = #{user_id}
     </select>
-    <select id="getUserByLogin" resultType="user">
+    <select id="findUserByLogin" resultType="user">
       SELECT * FROM user_table WHERE user_count=#{user_count} and user_psw=#{user_psw}
     </select>
-    <select id="getUsers" resultType="user">
+    <select id="findUserByCount" resultType="user">
+      SELECT * FROM user_table WHERE user_count=#{user_count}
+    </select>
+    <select id="findUsers" resultType="user">
         SELECT * FROM user_table
     </select>
 </mapper>
