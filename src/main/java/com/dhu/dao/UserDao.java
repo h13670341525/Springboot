@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface UserDao {
+    void insertUser(User user);
     User getUserById (int user_id);
-    User getUserByLogin(@Param("user_id")int user_id,@Param("user_name")String user_name);
+    User getUserByLogin(@Param("user_count")String user_count,@Param("user_psw")String user_psw);
     List<User> getUsers();
 }

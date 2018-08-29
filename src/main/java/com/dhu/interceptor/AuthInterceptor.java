@@ -18,7 +18,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         AuthValidate validate=((HandlerMethod)o).getMethodAnnotation(AuthValidate.class);
         if(validate==null) return true;
         User user= (User) httpServletRequest.getSession().getAttribute("user");
-        if(user!=null&&validate.value()==user.getAuth_id()) return true;
+        //if(user!=null&&validate.value()==user.getAuth_id()) return true;
         httpServletResponse.setCharacterEncoding("utf-8");
         httpServletResponse.getWriter().write("权限不足");
         return false;

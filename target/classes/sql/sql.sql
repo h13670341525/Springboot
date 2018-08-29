@@ -37,3 +37,11 @@ create table sc_table
     course_id int
 );
 INSERT INTO sc_table(student_id,course_id) VALUES (1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3),(4,1),(4,2),(4,3)
+
+create table user_table
+(
+    user_id int auto_increment primary key,
+    user_name varchar(30),
+    user_count VARCHAR(30),
+    user_psw VARCHAR(30)
+)

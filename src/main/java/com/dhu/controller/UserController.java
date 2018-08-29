@@ -1,10 +1,14 @@
 package com.dhu.controller;
 import com.dhu.annotation.AuthValidate;
 import com.dhu.domain.User;
+import com.dhu.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.jws.soap.SOAPBinding;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +16,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
+    @Autowired
+    private UserService userService;
     @RequestMapping("/login.do")
-    public String login(HttpServletRequest request){
-        User user=new User();
-        user.setUser_name("cherish");
-        user.setAuth_id(1);
-        request.getSession().setAttribute("user",user);
-        return user.getUser_name();
+    public String login(HttpServletRequest request,String user_count,String user_psw){
+        User user=userService.login(user_count,user_psw);
+        if(user==null){
+            return "fail";
+        }
+        else{
+            request.getSession().setAttribute("user",user);
+            return "success";
+        }
     }
 
     @AuthValidate(value = 2)

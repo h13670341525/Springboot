@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dhu.dao.UserDao">
+    <insert id="insertUser" parameterType="user">
+        INSERT INTO user_table values(null,#{user_name},#{user_count},#{user_psw})
+    </insert>
     <select id="getUserById" resultType="user">
-      SELECT * FROM T_USER WHERE USER_ID = #{user_id}
+      SELECT * FROM user_table WHERE user_id = #{user_id}
     </select>
     <select id="getUserByLogin" resultType="user">
-      SELECT * FROM T_USER WHERE USER_ID=#{user_id} and USER_NAME=#{user_name}
+      SELECT * FROM user_table WHERE user_count=#{user_count} and user_psw=#{user_psw}
     </select>
     <select id="getUsers" resultType="user">
-        SELECT * FROM T_USER
+        SELECT * FROM user_table
     </select>
 </mapper>

@@ -6,12 +6,9 @@ import java.sql.Timestamp;
 public class User implements Serializable {
 
     private Integer user_id;
-
     private String user_name;
-
-    private Integer auth_id;
-
-    private Timestamp createtime;
+    private String user_count;
+    private String user_psw;
 
     public Integer getUser_id() {
         return user_id;
@@ -29,19 +26,19 @@ public class User implements Serializable {
         this.user_name = user_name;
     }
 
-    public Timestamp getCreatetime() {
-        return createtime;
+    public String getUser_count() {
+        return user_count;
     }
 
-    public void setCreatetime(Timestamp createtime) {
-        this.createtime = createtime;
+    public void setUser_count(String user_count) {
+        this.user_count = user_count;
     }
 
-    public Integer getAuth_id() {
-        return auth_id;
+    public String getUser_psw() {
+        return user_psw;
     }
 
-    public void setAuth_id(Integer auth_id) {
-        this.auth_id = auth_id;
+    public void setUser_psw(String user_psw) {
+        this.user_psw = user_psw;
     }
 }

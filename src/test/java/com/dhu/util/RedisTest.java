@@ -55,10 +55,10 @@ public class RedisTest {
          User user=new User();
          user.setUser_id(2);
          user.setUser_name("cherish");
-         user.setCreatetime(new Timestamp(new Date().getTime()));
+//         user.setCreatetime(new Timestamp(new Date().getTime()));
          jedis.set("user_1".getBytes(),SerializeUtil.serialize(user));
          User temuser= (User) SerializeUtil.unserizlize(jedis.get("user_1".getBytes()));
-        System.out.println(user.getUser_id()+" "+user.getUser_name()+" "+user.getCreatetime());
+//        System.out.println(user.getUser_id()+" "+user.getUser_name()+" "+user.getCreatetime());
     }
     @Test
     public void objectListTest(){
@@ -66,7 +66,7 @@ public class RedisTest {
             User user=new User();
             user.setUser_id(i+1);
             user.setUser_name("cherish"+(i+1));
-            user.setCreatetime(new Timestamp(new Date().getTime()));
+//            user.setCreatetime(new Timestamp(new Date().getTime()));
             jedis.rpush("users".getBytes(),SerializeUtil.serialize(user));
         }
         List<byte[]> tems=jedis.lrange("users".getBytes(),0,-1);
@@ -75,7 +75,7 @@ public class RedisTest {
             users.add((User) SerializeUtil.unserizlize(tem));
         }
         for(User user:users){
-            System.out.println(user.getUser_id()+" "+user.getUser_name()+" "+user.getCreatetime());
+//            System.out.println(user.getUser_id()+" "+user.getUser_name()+" "+user.getCreatetime());
         }
     }
 

@@ -6,6 +6,6 @@ import com.dhu.domain.User;
 import java.util.List;
 
 public interface UserService {
-    public User login(int user_id,String user_name);
+    public User login(String user_count,String user_psw);
     public List<User> getUsers();
 }

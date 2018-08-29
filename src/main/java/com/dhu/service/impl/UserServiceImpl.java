@@ -15,13 +15,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
-
-    @RedisCache
     @Override
-    public User login(int user_id, String user_name) {
-        return userDao.getUserByLogin(user_id,user_name);
+    public User login(String user_count, String user_psw) {
+        return userDao.getUserByLogin(user_count,user_psw);
     }
-    @RedisCache
     @Override
     public List<User> getUsers() {
         return userDao.getUsers();

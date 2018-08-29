@@ -22,7 +22,7 @@ public class UserServiceImplTest {
 
       @Test
       public void testCache(){
-            System.out.println(userService.login(1,"cherish").getUser_name());
+            System.out.println(userService.login("chrish","cherish").getUser_name());
       }
 
       @Test
